@@ -28,11 +28,13 @@ function Collection() {
     }
   };
 
-    const filterProducts = useMemo(() => {
+  const filterProducts = useMemo(() => {
     let newProducts = [...products];
 
     if (showSearch && search) {
-      newProducts = newProducts.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+      newProducts = newProducts.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      );
     }
 
     // Filter by category
@@ -160,7 +162,10 @@ function Collection() {
         <div className="flex justify-between text-base sm:text-2xl mb-4">
           <Title text1={"ALL"} text2={"COLLECTIONS"} />
           {/* Product Sort */}
-          <select className="border-2 border-gray-300 text-sm px-2" onChange={(e) => setSort(e.target.value)}>
+          <select
+            className="border-2 border-gray-300 text-sm px-2"
+            onChange={(e) => setSort(e.target.value)}
+          >
             <option value="relavent">Sort by: Relavent</option>
             <option value="low-high">Sort by: Low to High</option>
             <option value="high-low">Sort by: High to Low</option>
